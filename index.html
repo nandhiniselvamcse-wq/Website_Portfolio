@@ -1,196 +1,749 @@
-<!--<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StartupAMP Demo</title>
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nandhini S | QA Engineer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #101310;
+    --panel: #191e19;
+    --lime: #c5f36b;
+    --white: #f2f4ed;
+    --muted: #a0a99d;
+    --line: #30382e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Manrope', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--lime);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--lime);
+}
+
+/* HERO */
+
+.hero {
+    padding: 100px 0 85px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.tag {
+    color: var(--lime);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 85px);
+    line-height: 1.05;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: var(--lime);
+}
+
+.hero-description {
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.9;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.btn {
+    padding: 13px 22px;
+    border: 1px solid var(--lime);
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.btn.primary {
+    background: var(--lime);
+    color: #101310;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.terminal {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 25px;
+    border-radius: 12px;
+    transform: rotate(2deg);
+    box-shadow: 0 20px 50px #0005;
+}
+
+.terminal-header {
+    display: flex;
+    gap: 7px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 22px;
+}
+
+.dot {
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background: var(--lime);
+}
+
+.terminal p {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.terminal .success {
+    color: var(--lime);
+}
+
+.terminal .command {
+    color: white;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+/* COMMON SECTIONS */
+
+section:not(.hero) {
+    padding: 75px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-label {
+    color: var(--lime);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.section-heading {
+    font-size: clamp(30px, 5vw, 46px);
+    letter-spacing: -2px;
+    margin-bottom: 35px;
+}
+
+.muted {
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.about-box {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.about-box strong {
+    color: var(--lime);
+    display: block;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.skill {
+    background: var(--panel);
+    padding: 25px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.skill:hover, .project:hover {
+    border-color: var(--lime);
+    transform: translateY(-5px);
+}
+
+.skill .number {
+    font-family: 'DM Mono', monospace;
+    color: var(--lime);
+    font-size: 12px;
+}
+
+.skill h3 {
+    margin: 17px 0 9px;
+    font-size: 17px;
+}
+
+.skill p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* EXPERIENCE */
+
+.timeline {
+    border-left: 1px solid var(--lime);
+    margin-left: 10px;
+}
+
+.job {
+    padding: 0 0 35px 30px;
+    position: relative;
+}
+
+.job::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    height: 11px;
+    width: 11px;
+    background: var(--lime);
+    border-radius: 50%;
+}
+
+.job h3 {
+    font-size: 20px;
+}
+
+.job small {
+    color: var(--lime);
+    font-family: 'DM Mono', monospace;
+    display: block;
+    margin: 8px 0;
+}
+
+.job p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.project {
+    padding: 28px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    transition: .3s;
+}
+
+.project-number {
+    font-family: 'DM Mono', monospace;
+    color: var(--lime);
+    font-size: 12px;
+}
+
+.project h3 {
+    margin: 20px 0 10px;
+    font-size: 21px;
+}
+
+.project p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.project ul {
+    color: var(--muted);
+    margin: 15px 0 0 18px;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.project-link {
+    color: var(--lime);
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* CONTACT */
+
+.contact-box {
+    background: var(--lime);
+    color: #101310;
+    padding: 50px;
+    border-radius: 12px;
+}
+
+.contact-box h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    margin-bottom: 20px;
+}
+
+.contact-box a {
+    font-weight: 800;
+    border-bottom: 1px solid #101310;
+}
+
+footer {
+    padding: 30px 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media(max-width: 750px) {
+    .hero, .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .terminal {
+        transform: none;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-content {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .contact-box {
+        padding: 30px 22px;
+    }
+}
+
+@media(max-width: 430px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo-text">
-            <h2>Best Mobile App</h2>
+<nav>
+    <div class="container nav-content">
+        <div class="logo">NANDHINI<span>.</span></div>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
-        <nav class="head-menus">
-            <ul class="main-menus">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">SERVICES</a></li>
-                <li><a href="#">ABOUT US</a></li>
-                <li class="show-menu">
-                    <a href="#">MORE DEMOS 🔻</a>
-                    <ul class="Sub-menus">
-                        <li><a href="#">Mobile App</a></li>
-                        <li><a href="#">Co-working</a></li>
-                        <li><a href="#">Business School</a></li>
-                        <li><a href="#">Header</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Tab</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="contact-us">CONTACT US</a></li>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<div class="container">
+<section class="hero">
+
+    <div>
+        <div class="tag">// QUALITY ASSURANCE ENGINEER</div>
+
+        <h1>
+            Finding Bugs.<br>
+            <span>Building Trust.</span>
+        </h1>
+
+        <p class="hero-description">
+            Hi, I'm Nandhini S. A Software Testing professional
+            with 3.8 years of experience in Manual Testing,
+            Functional Testing, API Testing and Automation Testing.
+            I believe quality is not just testing a product,
+            it's improving the user experience.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn primary">Explore My Work ↗</a>
+            <a href="#contact" class="btn">Let's Connect</a>
+        </div>
+    </div>
+
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <p>nandhini@qa-engineer:~$ run-tests</p>
+        <p class="command">Executing test scenarios...</p>
+        <p class="success">✓ Login validation</p>
+        <p class="success">✓ API response validation</p>
+        <p class="success">✓ Regression testing</p>
+        <p class="success">✓ Bug verification</p>
+        <p class="command">Test execution completed.</p>
+
+        <div class="status">
+            <span class="success">● QA mindset</span>
+            <span>Always learning</span>
+        </div>
+    </div>
+
+</section>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+<div class="container">
+
+    <div class="section-label">01 / ABOUT ME</div>
+    <h2 class="section-heading">Beyond finding bugs.</h2>
+
+    <div class="about-grid">
+
+        <p class="muted">
+            I am a Software Tester with 3.8 years of professional
+            experience in quality assurance. My work includes
+            understanding requirements, preparing test scenarios,
+            writing and executing test cases, reporting defects
+            and validating fixes.
+
+            <br><br>
+
+            I am also developing my automation testing skills
+            using Selenium, JavaScript and Playwright.
+            My goal is to deliver reliable and user-friendly
+            software applications.
+        </p>
+
+        <div class="about-box">
+            <strong>3.8 Years</strong>
+            <p class="muted">Professional Experience</p>
+            <br>
+            <strong>QA / Testing</strong>
+            <p class="muted">Core Professional Focus</p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+<div class="container">
+
+    <div class="section-label">02 / MY TOOLKIT</div>
+    <h2 class="section-heading">Skills & Technologies.</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill">
+            <span class="number">01 — MANUAL</span>
+            <h3>Manual Testing</h3>
+            <p>Functional, Smoke, Sanity, Regression, Retesting and Exploratory Testing.</p>
+        </div>
+
+        <div class="skill">
+            <span class="number">02 — API</span>
+            <h3>API Testing</h3>
+            <p>Postman, HTTP methods, status codes and response validation.</p>
+        </div>
+
+        <div class="skill">
+            <span class="number">03 — AUTOMATION</span>
+            <h3>Automation</h3>
+            <p>Playwright, JavaScript, Selenium and Java basics.</p>
+        </div>
+
+        <div class="skill">
+            <span class="number">04 — DATABASE</span>
+            <h3>SQL Testing</h3>
+            <p>SELECT, INSERT, UPDATE, DELETE and data validation.</p>
+        </div>
+
+        <div class="skill">
+            <span class="number">05 — TOOLS</span>
+            <h3>Testing Tools</h3>
+            <p>Jira, Postman, GitHub and VS Code.</p>
+        </div>
+
+        <div class="skill">
+            <span class="number">06 — PROCESS</span>
+            <h3>QA Process</h3>
+            <p>STLC, SDLC, Defect Life Cycle, Agile and Scrum.</p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+<div class="container">
+
+    <div class="section-label">03 / CAREER JOURNEY</div>
+    <h2 class="section-heading">Work Experience.</h2>
+
+    <div class="timeline">
+
+        <div class="job">
+            <h3>Sri Hema Info Tech</h3>
+            <small>FEB 2025 — JUL 2026</small>
+            <p>Software Tester / Project Coordination</p>
+            <p>Requirement analysis, test case preparation,
+            functional testing, regression testing, defect reporting
+            and client coordination.</p>
+        </div>
+
+        <div class="job">
+            <h3>Sophista Software Solution</h3>
+            <small>AUG 2021 — SEP 2023</small>
+            <p>Software Testing</p>
+            <p>Application testing, test scenario preparation,
+            test execution, bug reporting and retesting.</p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+<div class="container">
+
+    <div class="section-label">04 / SELECTED WORK</div>
+    <h2 class="section-heading">Testing Projects.</h2>
+
+    <div class="projects-grid">
+
+        <div class="project">
+            <span class="project-number">PROJECT 01 / MANUAL QA</span>
+            <h3>Login & Registration Testing</h3>
+            <p>Practice project demonstrating end-to-end
+            application validation.</p>
+            <ul>
+                <li>Valid and invalid login scenarios</li>
+                <li>Field validation and error messages</li>
+                <li>Boundary and negative testing</li>
+                <li>Test case preparation</li>
             </ul>
-        </nav>
-    </header>
-
-    <main class="hero-section">
-        <div class="hero-content">
-            <h1>Welcome to the Best Mobile App</h1>
-            <p>Discover amazing features, seamless experiences, and beautiful layouts tailored just for your startup.</p>
-            <a href="#" class="btn-primary">Get Started</a>
+            <span class="project-link">MANUAL TESTING ↗</span>
         </div>
-    </main>
-    
-</body>
-</html>-->
 
+        <div class="project">
+            <span class="project-number">PROJECT 02 / API QA</span>
+            <h3>API Testing with Postman</h3>
+            <p>Practice API validation using different
+            HTTP request methods.</p>
+            <ul>
+                <li>GET and POST requests</li>
+                <li>PUT and DELETE requests</li>
+                <li>Status code validation</li>
+                <li>Response body verification</li>
+            </ul>
+            <span class="project-link">API TESTING ↗</span>
+        </div>
 
-<!--<!DOCTYPE html>
-<html>
-<body>
+        <div class="project">
+            <span class="project-number">PROJECT 03 / AUTOMATION</span>
+            <h3>Browser Automation</h3>
+            <p>Practice browser automation for web application
+            test scenarios.</p>
+            <ul>
+                <li>Login automation</li>
+                <li>Registration automation</li>
+                <li>Element locators</li>
+                <li>Assertions and validation</li>
+            </ul>
+            <span class="project-link">PLAYWRIGHT ↗</span>
+        </div>
 
-<button id="btn">Click Me</button>
+        <div class="project">
+            <span class="project-number">PROJECT 04 / DEFECT QA</span>
+            <h3>Defect Reporting</h3>
+            <p>Practice identifying, documenting and
+            tracking application defects.</p>
+            <ul>
+                <li>Bug identification</li>
+                <li>Severity and priority</li>
+                <li>Expected vs actual result</li>
+                <li>Retesting and regression</li>
+            </ul>
+            <span class="project-link">BUG TRACKING ↗</span>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+<div class="container">
+
+    <div class="contact-box">
+        <div class="section-label" style="color:#25351b">
+            05 / GET IN TOUCH
+        </div>
+
+        <h2>Let's make software better.</h2>
+
+        <p>Open to QA Engineer and Software Testing opportunities.</p>
+
+        <p>
+            Email:
+            <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a>
+        </p>
+
+        <p>
+            <a href="https://www.linkedin.com/in/nandhinis24/"
+               target="_blank">LinkedIn ↗</a>
+            &nbsp; | &nbsp;
+            <a href="https://github.com/nandhini26-web"
+               target="_blank">GitHub ↗</a>
+        </p>
+    </div>
+
+</div>
+</section>
+
+<footer>
+    © 2026 Nandhini S. Designed with a QA mindset.
+</footer>
 
 <script>
-document.getElementById("btn").addEventListener("dblclick", function() {
-    alert("Login success");
-    
-});
+    // Navigation click tracking
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    navLinks.forEach(function(link) {
+        link.addEventListener("click", function() {
+            console.log("Clicked section: " + link.textContent);
+        });
+    });
+
+    // Welcome message
+    console.log("Welcome to Nandhini's QA Portfolio!");
 </script>
 
 </body>
-</html>-->
-
-
-<!--<!DOCTYPE html>
-<html>
-<body>
-
-<h2 id="text">Click here</h2>
-
-<script>
-document.getElementById("text").addEventListener("mouseover", function() {
-    this.style.color = "Green";
-});
-</script>
-
-</body>
-</html>-->
-
-<!--<!DOCTYPE html>
-<html>
-<body>
-
-<h2 id="text">Move Mouse Here</h2>
-
-<script>
-const text = document.getElementById("text");
-
-text.addEventListener("mouseover", function() {
-    this.style.color = "red";
-});
-
-text.addEventListener("mouseout", function() {
-    this.style.color = "green";
-});
-</script> -->
-
-
-<!--<!DOCTYPE html>
-<html>
-<body>
-
-<input type="text" id="input">
-
-<script>
-
-document.getElementById("input").addEventListener("keyup",function(event){
-
-    console.log("Key Pressed :", event.key);
-
-
-});
-</script>
-</body>
-</html> -->
-
-
-
-<!--<!DOCTYPE html>
-<html>
-<head>
-    <title>Focus Event</title>
-</head>
-<body>
-
-    <h2>Event</h2>
-
-    <input type="text" id="name" placeholder="Enter name">
-
-    <script>
-
-        let name = document.getElementById("name");
-
-        // Focus Event
-        name.addEventListener("focus", function() {
-            name.style.backgroundColor = "red";
-        });
-
-        // Blur Event
-        name.addEventListener("blur", function() {
-            name.style.backgroundColor = "Green";
-        });
-
-    </script>
-
-</body>
-</html>  -->
-
-
-
-
-<!--<!DOCTYPE html>
-<html>
-<head>
-    <title>Context Menu Event</title>
-</head>
-<body>
-
-    <h2>Context Menu Event</h2>
-
-    <p id="demo"> click on this text</p>
-
-    <script>
-
-        let text = document.getElementById("demo");
-
-        text.addEventListener("contextmenu", function(event) {
-
-            event.preventDefault();
-
-            alert("Right click event");
-
-        });
-
-    </script>
-
-</body>
-</html> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
+</html>
