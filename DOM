@@ -1,0 +1,6 @@
+<body>
+
+    <h1 id="myTitle">Welcome to JavaScript</h1>
+
+    <script src="script.js"></script>
+</body>

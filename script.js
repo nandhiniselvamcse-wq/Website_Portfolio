@@ -214,15 +214,6 @@
 //console.log(filteredContacts);
 
 
-let contacts = ["Ram", "Sam", "Rahul", "Amit"];
-
-// Rule: Only keep short names with exactly 3 letters
-let shortNames = contacts.filter(shortNames.
-
-console.log(shortNames); 
-// Output: ["Ram", "Sam"]
-
-
 
 
 

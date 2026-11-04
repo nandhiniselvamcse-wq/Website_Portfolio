@@ -1,16 +1,130 @@
-
-/* Hero Section Styles */
-.hero {
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.4),
-        rgba(0, 0, 0, 0.4)
-    ), #999999;
-
-    height: calc(100vh - 65px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 60px;
+    background-color: #000;
+}
+
+.logo-text {
+    padding: 10px;
+}
+
+.logo-text h2 {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.head-menus ul {
+    list-style-type: none;
+}
+
+.main-menus {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+}
+
+.main-menus li {
+    position: relative;
+}
+
+.main-menus a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 10px;
+    padding: 10px;
+    display: inline-block;
+}
+
+/* Contact Button Styling */
+.head-menus .contact-us {
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 3px;
+}
+
+.head-menus .contact-us:hover {
+    background-color: #949494;
+    transition: all 0.8s ease-in-out;
+}
+
+/* Dropdown Sub-menu Fixes */
+.main-menus .Sub-menus {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #000;
+    z-index: 10;
+}
+
+.Sub-menus li {
+    width: 150px;
+}
+
+.Sub-menus a {
+    font-size: 9px;
+    width: 100%;
+    padding: 10px;
+}
+
+.Sub-menus li:hover {
+    background-color: #222;
+}
+
+/* Corrected Hover Trigger Selector */
+.main-menus .show-menu:hover .Sub-menus {
+    display: block;
+}
+
+/* Styling for the New Main Body Content Area */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    background-color: #f4f6f9;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #333;
+}
+
